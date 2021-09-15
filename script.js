@@ -1,10 +1,12 @@
-//TMDB 
+//App de filmes consumindo API TMDB ;)
 
-const API_KEY = 'api_key=2264c8fc60b8fc09babe874b93fddd57';
+const API_KEY = 'api_key=2264c8fc60b8fc09babe874b93fddd57'; /* Aqui estou definindo a Api e a chave a ser usada */
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
-const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-const searchURL = BASE_URL + '/search/movie?'+API_KEY;
+const IMG_URL = 'https://image.tmdb.org/t/p/w500'; 
+const searchURL = BASE_URL + '/search/movie?'+API_KEY; /*responsável por buscar infos na api*/
+
+
 
 const genres = [
     {
@@ -85,7 +87,7 @@ const genres = [
     }
   ]
 
-const main = document.getElementById('main');
+const main = document.getElementById('main'); /* esta const é usada para exibir a capa do filmes no card */
 const form =  document.getElementById('form');
 const search = document.getElementById('search');
 const tagsEl = document.getElementById('tags');
@@ -202,7 +204,7 @@ function getMovies(url) {
 
 }
 
-
+/*A ideia desta função é criar os cards*/
 function showMovies(data) {
     main.innerHTML = '';
 
@@ -225,7 +227,7 @@ function showMovies(data) {
         
         `
 
-        main.appendChild(movieEl);
+        main.appendChild(movieEl); /*insere um novo nó na estrutura do DOM de um documento*/
 
         document.getElementById(id).addEventListener('click', () => {
           console.log(id)
@@ -233,9 +235,9 @@ function showMovies(data) {
         })
     })
 }
-
+/* Usando o fetch para chamar a api */
 const overlayContent = document.getElementById('overlay-content');
-/* Open when someone clicks on the span element */
+/* Aberto quando alguém clica no elemento span */
 function openNav(movie) {
   let id = movie.id;
   fetch(BASE_URL + '/movie/'+id+'/videos?'+API_KEY).then(res => res.json()).then(videoData => {
@@ -280,7 +282,7 @@ function openNav(movie) {
   })
 }
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
+/* Fecha se voce clicar no símbolo "x" dentro da sobreposição */
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
@@ -312,7 +314,7 @@ function showVideos(){
     }
   })
 }
-
+/*Parte da paginação*/
 const leftArrow = document.getElementById('left-arrow')
 const rightArrow = document.getElementById('right-arrow')
 
@@ -388,3 +390,5 @@ function pageCall(page){
     getMovies(url);
   }
 }
+
+    
