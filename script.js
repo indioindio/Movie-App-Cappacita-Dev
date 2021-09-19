@@ -1,4 +1,4 @@
-//App de filmes consumindo API TMDB ;)
+//App de filmes consumindo API TMDB 
 
 const API_KEY = 'api_key=2264c8fc60b8fc09babe874b93fddd57'; /* Aqui estou definindo a Api e a chave a ser usada */
 const BASE_URL = 'https://api.themoviedb.org/3';
